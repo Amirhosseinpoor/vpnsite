@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ExtrcatappConfig(AppConfig):
+class ExtractappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'extrcatapp'
+    name = 'extractapp'
