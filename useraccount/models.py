@@ -15,18 +15,23 @@ user_choice = [
     ('unlimited_user', 'Unlimited_user')
 
 ]
+type_choice = [
+    ('vmess', 'Vmess'),
+    ('vless', 'Vless'),
+]
 
 
 class CustomUser(AbstractUser):
     first_name = models.CharField(max_length=255, blank=False)
     last_name = models.CharField(max_length=255, blank=False)
-    identifier_name = models.CharField(max_length=255, blank=False, default='default_identifier')
+    identifier_name = models.CharField(max_length=255, blank=False, default='enter your identifier name')
     email = models.EmailField(blank=False)
-    telegram_id = models.CharField(max_length=255, blank=False, default='default_telegram_id')
+    telegram_id = models.CharField(max_length=255, blank=False, default='enter your telegram id')
     vpn_link = models.TextField(blank=True)
     fragment = models.CharField(max_length=255, blank=True)
     month = models.CharField(max_length=20, blank=True, choices=month_choice, default='1_month')
     user = models.CharField(max_length=20, blank=True, choices=user_choice, default='1_user')
+    type = models.CharField(max_length=20, blank=True, choices=type_choice, default='vmess')
 
     def __str__(self):
         return self.username

@@ -67,5 +67,5 @@ example = Extractor(
 print(example.final_output()[1])
 
 example2 = Extractor(
-    "vless://6dd184d2-19b8-e570-8f29-19ad999abc8a@q.ownlink.pro:27768?security=none&encryption=none&headerType=http&type=tcp#31700")
+    "vless://6dd184d2-19b8-e570-8f29-19ad999abc8a@q.ownlink.pro:27768?security=none&encryption=none&headerType=http&type=tcp#31720")
 print(example2.final_output()[1])

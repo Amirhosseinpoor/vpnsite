@@ -7,8 +7,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
             <div class="bg-light p-4 rounded shadow-sm">
-                <h1 class="text-center mb-4">Select Month and User</h1>
-                <form action="{% url 'month_user' %}" method="post">
+                <h1 class="text-center mb-4">Select Month, User, and Type</h1>
+                <form action="{% url 'new_shopping' %}" method="post">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="monthSelect" class="form-label">Select Month</label>
@@ -27,6 +27,13 @@
                             <option value="3_user">Three Users</option>
                             <option value="4_user">Four Users</option>
                             <option value="unlimited_user">Unlimited Users</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="typeSelect" class="form-label">Select Type</label>
+                        <select id="typeSelect" name="type" class="form-select">
+                            <option value="vmess">Premium</option>
+                            <option value="vless">Normal</option>
                         </select>
                     </div>
                     <div class="d-grid gap-2 mt-4">

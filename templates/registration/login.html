@@ -3,17 +3,20 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container">
-    <div class="col-6">
-        <h1>login</h1>
-        <form method="post">
+<div class="container mt-5">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="text-center mb-4">Login</h1>
+        <form method="post" class="p-4 bg-light rounded">
             {% csrf_token %}
             {{ form|crispy }}
-            <br>
-            <button type="submit" class="btn btn-success">login</button>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success btn-lg">Login</button>
+            </div>
         </form>
-        <br>
-        <br><p>if you forgot your password <a href="{% url 'password_reset' %}">click</a></p>
+        <div class="text-center mt-3">
+            <p>If you forgot your password, <a href="{% url 'password_reset' %}">click here</a></p>
+            <p>If you don't have an account, <a href="{% url 'signup' %}">sign up here</a></p>
+        </div>
     </div>
 </div>
 {% endblock content %}
