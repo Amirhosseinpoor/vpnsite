@@ -80,9 +80,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://localhost')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vpnsite_database',
+        'USER': 'admin',
+        'PASSWORD': 'adminadmin',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
-
 
 
 
