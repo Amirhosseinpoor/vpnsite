@@ -8,10 +8,10 @@ class Extractor:
         self.link = link
         if self.link.startswith('vmess://'):
             self.output = self.vmessextractor(self.detector(self.link))
-            self.linktype = 'vmess'
+
         elif self.link.startswith('vless://'):
             self.output = self.vlessextractor(self.detector(self.link))
-            self.linktype = 'vless'
+
         else:
             self.output = "invalid"
 
@@ -56,16 +56,16 @@ class Extractor:
         return vless_info
 
     def final_output(self):
-        if self.linktype == "vmess":
+        if self.link.startswith("vmess://"):
             return self.output, self.output['ps']
-        elif self.linktype == "vless":
+        elif self.link.startswith("vless://"):
             return self.output, self.output['fragment']
 
 
 example = Extractor(
     "vmess://eyJhZGQiOiJuczIzNy5ub29yYWhvc3QuY29tIiwiYWlkIjoiMCIsImhvc3QiOiIiLCJpZCI6ImE4MzEzODFjLTYzMjAtNGQ1My1hZDRmLThkZGE0MGIzMDgxMSIsIm5ldCI6IndzIiwicGF0aCI6Ii9ncmFwaHFsP2tleT04MDdkZGI4Yzk3NjRjMDg0MzAyNjEyY2NiOTg4ODBiMiIsInBvcnQiOiI0NDMiLCJwcyI6IlZNZXNzICM4NzE0NSIsInNjeSI6Im5vbmUiLCJzbmkiOiIiLCJ0bHMiOiJ0bHMiLCJ0eXBlIjoiIiwidiI6IjIifQ==")
-print(example.final_output())
+print(example.final_output()[1])
 
 example2 = Extractor(
     "vless://6dd184d2-19b8-e570-8f29-19ad999abc8a@q.ownlink.pro:27768?security=none&encryption=none&headerType=http&type=tcp#31700")
-print(example2.final_output())
+print(example2.final_output()[1])
