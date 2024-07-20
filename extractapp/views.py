@@ -22,7 +22,7 @@ def link_to_fragment(request):
 
     return render(request, 'input_link.html')
 
-
+@login_required
 def month_user(request):
     if request.method == 'POST':
         month = request.POST['month']
@@ -34,7 +34,7 @@ def month_user(request):
         return render(request, 'output.html')
     return render(request, 'input_month_user.html')
 
-
+@login_required
 def buy(request):
     if request.method == 'POST':
         month = request.POST['month']
